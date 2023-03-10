@@ -121,11 +121,11 @@ void eliminarColaModificada(Tcolas &listacolas, int valor);
 void registrarProcesa(Tprocesa &listaprocesa, int cedulaprestador,int cedulapedidor);
 
 //ESCRITURA 
-void escribirLista(Tlista variable);
-void escribirListaCarros(Tcarro variable);
-void escribirListaColas(Tcolas variable);
-void escribirListaOfrece(Tofrece variable);
-void escribirListaDestino(Tdestino variable);
+void escribirLista(Tlista variable, string path);
+void escribirListaCarros(Tcarro variable, string path);
+void escribirListaColas(Tcolas variable, string path);
+void escribirListaOfrece(Tofrece variable, string path);
+void escribirListaDestino(Tdestino variable, string path);
 
 //LECTURA 
 void cargarPersona(Tlista nodo,Tlista &lista);
@@ -1487,11 +1487,11 @@ bool esVaciaOfrece(Tofrece &listaofrece) {
 //LECTURA Y ESCRITURA..
 
 //LECTURA.
-void escribirLista(Tlista variable) {
+void escribirLista(Tlista variable, string path) {
 
     Tlista q = variable;
 
-    ofstream fs("lista.txt"); 
+    ofstream fs(path); 
    if (q!=NULL){
    // Crea un fichero de salida
    
@@ -1544,12 +1544,12 @@ void escribirLista(Tlista variable) {
 }
 }
 
-void escribirListaCarros(Tcarro variable) {
+void escribirListaCarros(Tcarro variable, string path) {
 
     Tcarro q = variable;
    
    // Crea un fichero de salida
-   ofstream fs("listacarros.txt"); 
+   ofstream fs(path); 
 
    if (q!=NULL){
    fs<<"-----------------------"<<endl;
@@ -1587,12 +1587,12 @@ void escribirListaCarros(Tcarro variable) {
 
 
 
-void escribirListaColas(Tcolas variable) {
+void escribirListaColas(Tcolas variable, string path) {
 
     Tcolas q = variable;
    
    // Crea un fichero de salida
-   ofstream fs("listacolas.txt");
+   ofstream fs(path);
    if (q!=NULL){ 
    fs<<"-----------------------"<<endl;
    while (q != NULL ) {
@@ -1618,12 +1618,12 @@ void escribirListaColas(Tcolas variable) {
 }
 }
 
-void escribirListaOfrece(Tofrece variable) {
+void escribirListaOfrece(Tofrece variable, string path) {
 
     Tofrece q = variable;
    
    // Crea un fichero de salida
-   ofstream fs("listaofrece.txt"); 
+   ofstream fs(path); 
    if (q!=NULL){ 
     fs<<"-----------------------"<<endl;
    while (q != NULL ) {
@@ -1651,12 +1651,12 @@ void escribirListaOfrece(Tofrece variable) {
 }
 }
 
-void escribirListaDestino(Tdestino variable) {
+void escribirListaDestino(Tdestino variable, string path) {
 
     Tdestino q = variable;
    
    // Crea un fichero de salida
-   ofstream fs("listadestinos.txt");
+   ofstream fs(path);
    if (q!=NULL){ 
    fs<<"-----------------------"<<endl; 
    while (q != NULL ) {

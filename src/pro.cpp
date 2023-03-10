@@ -2,7 +2,9 @@
 Alumno. Froilan Roa.
 Prof. Joselito de Sousa. 
 */
-#include "Tda.h"
+#include "../libraries/Tda.h"
+
+using namespace std;
 
 
 int cedula; bool tener;
@@ -169,12 +171,12 @@ int main()
 	Tdestino listadestinos = NULL;	
 	Tprocesa listaprocesa = NULL;
 	
-	char dirLista[200] = { "lista.txt" }; 
-	char dirListaCarros[200] = { "listacarros.txt" }; 
-	char dirListaColas[200] = { "listacolas.txt" }; 
-	char dirListaDestinos[200] = { "listadestinos.txt" }; 
-	char dirListaOfrecimientos[200] = { "listaofrece.txt" };
-	char dirDia[200] = { "dia.txt" }; 
+	char dirLista[200] = { "files/lista.txt" }; 
+	char dirListaCarros[200] = { "files/listacarros.txt" }; 
+	char dirListaColas[200] = { "files/listacolas.txt" }; 
+	char dirListaDestinos[200] = { "files/listadestinos.txt" }; 
+	char dirListaOfrecimientos[200] = { "files/listaofrece.txt" };
+	char dirDia[200] = { "files/dia.txt" }; 
 		
 	
 	cargarLista(lista,dirLista);
@@ -338,9 +340,9 @@ int main()
             cout << "\n\n**********FIN DEL PROGRAMA************\n\n" << endl;
             break;
 
-
-        
-
+			default:
+			cout << "\n\n**********OPCION INCORRECTA************\n\n" << endl;
+			break;
 		
  
 		}
@@ -349,11 +351,11 @@ int main()
 		
 		procesarColas(listacolas,listaofrece,listaprocesa);
 		
-		escribirLista(lista);
-		escribirListaCarros(listacarros);
-		escribirListaColas(listacolas);
-		escribirListaOfrece(listaofrece); 
-		escribirListaDestino(listadestinos);
+		escribirLista(lista, dirLista);
+		escribirListaCarros(listacarros, dirListaCarros);
+		escribirListaColas(listacolas, dirListaColas);
+		escribirListaOfrece(listaofrece, dirListaOfrecimientos); 
+		escribirListaDestino(listadestinos, dirListaDestinos);
 		
 		
 	if (op<17) borrarPantalla();
